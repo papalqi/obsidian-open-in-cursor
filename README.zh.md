@@ -37,11 +37,10 @@
 
 ### 使用方式
 
-有三种方式可以在 Cursor 中打开当前笔记：
+有两种方式可以在 Cursor 中打开当前笔记：
 
 1. 点击底部状态栏的 "Open in Cursor" 按钮
-2. 使用快捷键 `Ctrl/Cmd + Shift + C`
-3. 通过命令面板（`Ctrl/Cmd + P`）执行 "在 Cursor 中打开当前文件" 命令
+2. 通过命令面板（`Ctrl/Cmd + P`）执行 "在 Cursor 中打开当前文件" 命令
 
 ### 窗口管理
 

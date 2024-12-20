@@ -1,14 +1,13 @@
 # Open in Cursor
 
-A simple Obsidian plugin that allows you to quickly open your current note in [Cursor](https://cursor.sh/) editor.
+A simple Obsidian plugin that bridges Obsidian with Cursor editor, allowing you to quickly open and edit your notes in Cursor.
 
 [中文文档](./README.zh.md)
 
 ## Features
 
 - 🚀 Open current note in Cursor with one click
-- 💡 Smart window management (reuses existing Cursor windows)
-- ⌨️ Keyboard shortcut support (default: `Ctrl/Cmd + Shift + C`)
+- 💡 Smart window management (tracks window process ID)
 - 🎯 Command palette support
 - 📝 Status bar button for quick access
 
@@ -39,11 +38,10 @@ A simple Obsidian plugin that allows you to quickly open your current note in [C
 
 ### How to Use
 
-There are three ways to open the current note in Cursor:
+There are two ways to open the current note in Cursor:
 
 1. Click the "Open in Cursor" button in the status bar
-2. Use the keyboard shortcut `Ctrl/Cmd + Shift + C`
-3. Execute "Open current file in Cursor" from the command palette (`Ctrl/Cmd + P`)
+2. Execute "Open current file in Cursor" from the command palette (`Ctrl/Cmd + P`)
 
 ### Window Management
 

@@ -1,0 +1,13 @@
+{
+  "id": "open-in-cursor",
+  "name": "Open in Cursor",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "在 Obsidian 和 Cursor 之间建立桥梁，让你能够快速在 Cursor 编辑器中打开笔记。支持智能窗口管理、快捷键和命令面板操作。",
+  "author": "papehuang",
+  "authorUrl": "https://github.com/papehuang",
+  "isDesktopOnly": true,
+  "fundingUrl": {
+    "Github": "https://github.com/papehuang"
+  }
+}

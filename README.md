@@ -1,71 +1,73 @@
 # Open in Cursor
 
-一个简单的 Obsidian 插件，让你能够快速在 [Cursor](https://cursor.sh/) 编辑器中打开当前的笔记文件。
+A simple Obsidian plugin that allows you to quickly open your current note in [Cursor](https://cursor.sh/) editor.
 
-## 功能特点
+[中文文档](./README.zh.md)
 
-- 🚀 一键在 Cursor 中打开当前笔记
-- 💡 智能窗口管理（自动复用已打开的 Cursor 窗口）
-- ⌨️ 支持快捷键（默认为 `Ctrl/Cmd + Shift + C`）
-- 🎯 支持命令面板操作
-- 📝 底部状态栏快捷按钮
+## Features
 
-## 安装方法
+- 🚀 Open current note in Cursor with one click
+- 💡 Smart window management (reuses existing Cursor windows)
+- ⌨️ Keyboard shortcut support (default: `Ctrl/Cmd + Shift + C`)
+- 🎯 Command palette support
+- 📝 Status bar button for quick access
 
-### 从 Obsidian 社区插件市场安装
+## Installation
 
-1. 打开 Obsidian 设置
-2. 进入 `社区插件`
-3. 关闭 `安全模式`
-4. 点击 `浏览` 并搜索 "Open in Cursor"
-5. 点击安装
-6. 启用插件
+### From Obsidian Community Plugins
 
-### 手动安装
+1. Open Obsidian Settings
+2. Go to `Community Plugins`
+3. Disable `Safe Mode`
+4. Click `Browse` and search for "Open in Cursor"
+5. Click Install
+6. Enable the plugin
 
-1. 下载最新的 release
-2. 解压后将 `main.js` 和 `manifest.json` 复制到你的 vault 目录下的 `.obsidian/plugins/open-in-cursor/` 文件夹中
-3. 重启 Obsidian
-4. 在设置中启用插件
+### Manual Installation
 
-## 使用方法
+1. Download the latest release
+2. Extract and copy `main.js` and `manifest.json` to your vault's `.obsidian/plugins/open-in-cursor/` directory
+3. Restart Obsidian
+4. Enable the plugin in Settings
 
-### 首次使用配置
+## Usage
 
-1. 在 Obsidian 设置中找到 "Open in Cursor"
-2. 设置 Cursor 可执行文件路径（例如：`C:\Users\username\AppData\Local\Programs\Cursor\Cursor.exe`）
+### First-time Setup
 
-### 使用方式
+1. Find "Open in Cursor" in Obsidian Settings
+2. Set the Cursor executable path (e.g., `C:\Users\username\AppData\Local\Programs\Cursor\Cursor.exe`)
 
-有三种方式可以在 Cursor 中打开当前笔记：
+### How to Use
 
-1. 点击底部状态栏的 "Open in Cursor" 按钮
-2. 使用快捷键 `Ctrl/Cmd + Shift + C`
-3. 通过命令面板（`Ctrl/Cmd + P`）执行 "在 Cursor 中打开当前文件" 命令
+There are three ways to open the current note in Cursor:
 
-### 窗口管理
+1. Click the "Open in Cursor" button in the status bar
+2. Use the keyboard shortcut `Ctrl/Cmd + Shift + C`
+3. Execute "Open current file in Cursor" from the command palette (`Ctrl/Cmd + P`)
 
-- 首次使用时会打开新的 Cursor 窗口
-- 之后的操作都会在首次打开的窗口中打开文件
-- 如果需要重新使用新窗口，可以在插件设置中点击"重置"按钮
+### Window Management
 
-## 常见问题
+- A new Cursor window will open on first use
+- Subsequent operations will open files in the initially opened window
+- If you need to use a new window, click the "Reset" button in plugin settings
 
-1. **找不到 Cursor？**
-   - 确保已经安装了 Cursor 编辑器
-   - 在插件设置中正确配置 Cursor 可执行文件路径
+## FAQ
 
-2. **每次都打开新窗口？**
-   - 检查是否意外关闭了首次打开的 Cursor 窗口
-   - 可以在设置中点击"重置"按钮，重新开始窗口管理
+1. **Can't find Cursor?**
+   - Make sure Cursor editor is installed
+   - Configure the correct Cursor executable path in plugin settings
 
-3. **快捷键冲突？**
-   - 可以在 Obsidian 的快捷键设置中自定义新的快捷键
+2. **Opens new window every time?**
+   - Check if you accidentally closed the initially opened Cursor window
+   - Click the "Reset" button in settings to restart window management
 
-## 贡献指南
+3. **Keyboard shortcut conflict?**
+   - You can customize the shortcut in Obsidian's hotkey settings
 
-欢迎提交 Issue 和 Pull Request！
+## Contributing
 
-## 许可证
+Issues and Pull Requests are welcome!
+
+## License
 
 MIT License 

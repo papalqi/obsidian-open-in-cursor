@@ -1,0 +1,11 @@
+.cursor-bridge-status-button {
+    cursor: pointer;
+    padding: 0 8px;
+    border-radius: 4px;
+    margin: 0 4px;
+}
+
+.cursor-bridge-status-button:hover {
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+} 

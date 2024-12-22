@@ -72,53 +72,35 @@ export default class OpenInCursorPlugin extends Plugin {
     async onload(): Promise<void> {
         await this.loadSettings();
         
-        console.log('OpenInCursor plugin is loading...');
-        
         this.addCommand({
             id: 'open-in-cursor',
             name: '在 Cursor 中打开当前文件',
             callback: () => {
                 const activeFile = this.app.workspace.getActiveFile();
                 if (activeFile) {
-                    console.log('Opening active file in Cursor:', activeFile.path);
                     this.openInCursor([activeFile.path]);
                 } else {
                     new Notice('No active file');
                 }
-            },
-            hotkeys: [
-                {
-                    modifiers: ["Mod", "Shift"],
-                    key: "c"
-                }
-            ]
+            }
         });
         
         const statusBarItem = this.addStatusBarItem();
         const statusBarButton = statusBarItem.createEl('span', {
             text: 'Open in Cursor',
-            cls: 'cursor-bridge-status-button',
-            attr: {
-                style: 'cursor: pointer; padding: 0 8px; border-radius: 4px; margin: 0 4px;'
+            cls: 'cursor-bridge-status-button'
+        });
+
+        statusBarButton.onclick = () => {
+            const activeFile = this.app.workspace.getActiveFile();
+            if (activeFile) {
+                this.openInCursor([activeFile.path]);
+            } else {
+                new Notice('No active file');
             }
-        });
-
-        statusBarButton.addEventListener('mouseenter', () => {
-            statusBarButton.style.backgroundColor = 'var(--interactive-accent)';
-            statusBarButton.style.color = 'var(--text-on-accent)';
-        });
-        
-        statusBarButton.addEventListener('mouseleave', () => {
-            statusBarButton.style.backgroundColor = '';
-            statusBarButton.style.color = '';
-        });
-
-        // statusBarButton.addEventListener('click', () => {
-        //     this.app.commands.executeCommandById('cursor-bridge:open-in-cursor');
-        // });
+        };
 
         this.addSettingTab(new OpenInCursorSettingTab(this.app, this));
-        console.log('OpenInCursor plugin loaded successfully');
     }
 
     async loadSettings(): Promise<void> {
@@ -140,7 +122,6 @@ export default class OpenInCursorPlugin extends Plugin {
                 
                 exec(checkCommand, (error: ExecException | null, stdout: string) => {
                     if (error || !stdout.includes(String(this.settings.cursorPid))) {
-                        console.log('Saved Cursor process not found, resetting state');
                         this.settings.isFirstOpen = true;
                         this.settings.cursorPid = null;
                         this.saveSettings();
@@ -175,26 +156,16 @@ export default class OpenInCursorPlugin extends Plugin {
                     new Notice('Failed to open in Cursor');
                     return;
                 }
-                if (stderr) {
-                    console.error(`stderr: ${stderr}`);
-                }
-                if (stdout) {
-                    console.log(`stdout: ${stdout}`);
-                }
                 if (this.settings.isFirstOpen && childProcess.pid) {
                     this.settings.isFirstOpen = false;
                     this.settings.cursorPid = childProcess.pid;
                     this.saveSettings();
-                    console.log('Saved Cursor PID:', childProcess.pid);
                 }
                 new Notice('Directory opened in Cursor');
             }) as ExecCallbackType);
         } else if (files.length > 0) {
             const fullPaths = files.map(convertPath);
             const command = `"${cursorPath}" ${windowFlag} ${fullPaths.map(p => `"${p}"`).join(' ')}`;
-            
-            console.log('Opening files:', fullPaths);
-            console.log('Executing command:', command);
             
             const childProcess = exec(command, ((error: ExecException | null, stdout: string, stderr: string) => {
                 if (error) {
@@ -205,7 +176,6 @@ export default class OpenInCursorPlugin extends Plugin {
                     this.settings.isFirstOpen = false;
                     this.settings.cursorPid = childProcess.pid;
                     this.saveSettings();
-                    console.log('Saved Cursor PID:', childProcess.pid);
                 }
                 new Notice('Files opened in Cursor');
             }) as ExecCallbackType);
